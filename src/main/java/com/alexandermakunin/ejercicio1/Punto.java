@@ -1,4 +1,4 @@
-package com.alexandermakunin;
+package com.alexandermakunin.ejercicio1;
 
 import java.util.Objects;
 
