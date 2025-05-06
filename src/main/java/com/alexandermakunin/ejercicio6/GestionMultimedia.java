@@ -27,7 +27,7 @@ public class GestionMultimedia {
         }
     }
 
-    public boolean Alquilar(Multimedia multimedia, Socio socio) {
+    public boolean alquilar(Multimedia multimedia, Socio socio) {
         for (Socio socio1 : socios) {
             if (socio1.equals(socio)) {
                 for (Alquiler alquiler : alquileres) {
@@ -41,9 +41,8 @@ public class GestionMultimedia {
         }
         return false;
     }
-    public void Devoler(Alquiler alquiler) {alquiler.devolucion();}
-    public ArrayList<Multimedia> listadoMultimedo() {
-        return multimedias;
+    public void devoler(Alquiler alquiler) {
+        alquiler.devolucion();
     }
     public ArrayList<Pelicula> peliculasPorNombreAlfabetico() {
         ArrayList<Pelicula> peliculas = new ArrayList<>();
@@ -87,10 +86,10 @@ public class GestionMultimedia {
         }
         return videojuegosOrdenadas;
     }
-    public ArrayList<Alquiler> listaAlquileres() {
-        LocalDate fecha = alquileres.get(alquileres.size()).getFechaAlquiler();
+    public ArrayList<Alquiler> listaAlquileresDeUnSocio(Socio socio) {
+        LocalDate fecha = alquileres.get(alquileres.size()-1).getFechaAlquiler();
         for (Alquiler alquiler : alquileres) {
-            if (fecha.isAfter(alquiler.getFechaAlquiler())) {
+            if (fecha.isAfter(alquiler.getFechaAlquiler()) && alquiler.getSocio().equals(socio)) {
                 fecha = alquiler.getFechaAlquiler();
             }
         }
@@ -101,7 +100,7 @@ public class GestionMultimedia {
                     alquilers.add(alquilers.get(j));
                 }
             }
-            fecha.plusDays(1);
+            fecha = fecha.plusDays(1);
         }
         return alquilers;
     }
@@ -128,5 +127,17 @@ public class GestionMultimedia {
             }
         }
         return socioConCargoPendientes;
+    }
+
+    public ArrayList<Multimedia> getMultimedias() {
+        return multimedias;
+    }
+
+    public ArrayList<Socio> getSocios() {
+        return socios;
+    }
+
+    public ArrayList<Alquiler> getAlquileres() {
+        return alquileres;
     }
 }

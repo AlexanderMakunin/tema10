@@ -13,11 +13,15 @@ public class Inventario {
     public Inventario() {}
 
     public boolean add(Bloque bloque) {
-        if (objetos.size() > 7) {
+        if (objetos.size() > limit) {
             return false;
         } else {
             if (objetos.contains(bloque)) {
-                bloque.setActualStack(bloque.getActualStack()+1);
+                if (bloque.getActualStack() < bloque.getMaxStack()) {
+                    bloque.setActualStack(bloque.getActualStack()+1);
+                } else {
+                    return false;
+                }
             } else {
                 objetos.add(bloque);
             }
@@ -26,7 +30,7 @@ public class Inventario {
     }
 
     public boolean add(Utilidad Utilidad) {
-        if (objetos.size() > 7) {
+        if (objetos.size() > limit) {
             return false;
         } else {
             objetos.add(Utilidad);
