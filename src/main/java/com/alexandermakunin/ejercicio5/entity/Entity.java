@@ -1,17 +1,18 @@
 package com.alexandermakunin.ejercicio5.entity;
 
 public abstract class Entity {
-    private int id = 0;
+    private static int id = 0;
     private double x = 0;
     private double y = 0;
-    private int maxHp;
-    private int actualHp = maxHp;
+    private final int maxHp;
+    private int actualHp;
     private final String nombre;
 
     protected Entity(int maxHp, String nombre) {
-        this.id = id + 1;
+        id = id + 1;
         this.maxHp = maxHp;
         this.nombre = nombre;
+        this.actualHp = maxHp;
     }
 
     public double getX() {
@@ -42,5 +43,13 @@ public abstract class Entity {
         return nombre;
     }
 
-
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "id=" + id +
+                ", maxHp=" + maxHp +
+                ", actualHp=" + actualHp +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }

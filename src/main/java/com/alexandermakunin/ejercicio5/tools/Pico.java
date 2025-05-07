@@ -9,5 +9,6 @@ public class Pico extends Herramienta {
     @Override
     public void minar(Bloque bloque) {
         super.setDurabilidad(super.getDurabilidad()-1);
+        bloque.setActualStack(bloque.getActualStack()-1);
     }
 }

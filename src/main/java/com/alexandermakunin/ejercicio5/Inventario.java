@@ -7,10 +7,13 @@ import com.alexandermakunin.ejercicio5.usable.Usable;
 import java.util.ArrayList;
 
 public class Inventario {
-    ArrayList<Objeto> objetos = new ArrayList<>();
-    private final int limit = 7;
+    private final ArrayList<Objeto> objetos;
+    private final int limit;
 
-    public Inventario() {}
+    public Inventario() {
+        objetos = new ArrayList<>();
+        limit = 6;
+    }
 
     public boolean add(Bloque bloque) {
         if (objetos.size() > limit) {
@@ -39,11 +42,14 @@ public class Inventario {
     }
 
     public boolean add(Usable usable) {
-        if (objetos.size() > 7) {
+        if (objetos.size() > limit) {
             return false;
         } else {
+            if (usable.getMaxStack() < usable.getActualStack()) {
+                return false;
+            }
             if (objetos.contains(usable)) {
-                usable.setActualStack(usable.getActualStack()-1);
+                usable.setActualStack(usable.getActualStack()+1);
             } else {
                 objetos.add(usable);
             }

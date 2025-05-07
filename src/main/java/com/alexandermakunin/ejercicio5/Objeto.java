@@ -3,7 +3,7 @@ package com.alexandermakunin.ejercicio5;
 import java.util.Objects;
 
 public abstract class Objeto {
-    private int id = 0;
+    private static int id = 0;
     private final String nombre;
     private final int maxStack;
 
@@ -20,10 +20,9 @@ public abstract class Objeto {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Objeto objeto = (Objeto) o;
-        return id == objeto.id && Objects.equals(nombre, objeto.nombre);
+        return Objects.equals(nombre, objeto.nombre);
     }
 
     @Override

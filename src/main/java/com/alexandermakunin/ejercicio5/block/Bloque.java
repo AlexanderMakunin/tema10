@@ -7,7 +7,8 @@ public abstract class Bloque extends Objeto {
     private int actualStack = 0;
 
     public Bloque(String nombre) {
-        super(nombre,64);
+        super(nombre,63);
+        actualStack = getActualStack()+1;
     }
 
     public int getMaxStack() {

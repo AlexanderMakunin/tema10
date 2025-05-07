@@ -32,27 +32,33 @@ public class Ejercicio6 {
     };
 
     public static void main(String[] args) throws Exception {
-        for (int i = 0; i < opciones.length; i++) {
-            System.out.println((i+1) + "." + opciones[i]);
-        }
-        int opcion = Integer.parseInt(scanner.nextLine());
-        switch (opcion) {
-            case 1 -> altas();
-            case 2 -> alquilarMultimedia();
-            case 3 -> devolverMultimedia();
-            case 4 -> listados();
-        }
+        int opcion;
+        do {
+            for (int i = 0; i < opciones.length; i++) {
+                System.out.println((i+1) + "." + opciones[i]);
+            }
+            opcion = Integer.parseInt(scanner.nextLine());
+            switch (opcion) {
+                case 1 -> altas();
+                case 2 -> alquilarMultimedia();
+                case 3 -> devolverMultimedia();
+                case 4 -> listados();
+            }
+        } while (opcion != 0);
     }
     public static void altas() throws Exception {
-        for (int i = 0; i < opciones.length; i++) {
-            System.out.println((i+1) + "." + altas[i]);
-        }
-        int opcion = Integer.parseInt(scanner.nextLine());
-        switch (opcion) {
-            case 1 -> nuevaPelicula();
-            case 2 -> nuevoVideojuego();
-            case 3 -> nuevoSocio();
-        }
+        int opcion;
+        do {
+            for (int i = 1; i < altas.length; i++) {
+                System.out.println((i+1) + "." + altas[i]);
+            }
+            opcion = Integer.parseInt(scanner.nextLine());
+            switch (opcion) {
+                case 1 -> nuevaPelicula();
+                case 2 -> nuevoVideojuego();
+                case 3 -> nuevoSocio();
+            }
+        } while (opcion != 0);
     }
     public static void nuevaPelicula() {
         System.out.println("Indique el titulo");
@@ -169,18 +175,21 @@ public class Ejercicio6 {
         }
     }
     public static void listados() {
-        for (int i = 0; i < opciones.length; i++) {
-            System.out.println((i+1) + "." + listados[i]);
-        }
-        int opcion = Integer.parseInt(scanner.nextLine());
-        switch (opcion) {
-            case 1 -> listaMultimedia();
-            case 2 -> listaPeliculas();
-            case 3 -> listaVideojuegos();
-            case 4 -> alquileresDeUnSocio();
-            case 5 -> alquileresActualDeUnSocio();
-            case 6 -> cargoPendiente();
-        }
+        int opcion;
+        do {
+            for (int i = 1; i < opciones.length; i++) {
+                System.out.println((i+1) + "." + listados[i]);
+            }
+            opcion = Integer.parseInt(scanner.nextLine());
+            switch (opcion) {
+                case 1 -> listaMultimedia();
+                case 2 -> listaPeliculas();
+                case 3 -> listaVideojuegos();
+                case 4 -> alquileresDeUnSocio();
+                case 5 -> alquileresActualDeUnSocio();
+                case 6 -> cargoPendiente();
+            }
+        } while (opcion != 0);
     }
     public static void listaMultimedia() {
         for (Multimedia multimedia : gestionMultimedia.getMultimedias()) {

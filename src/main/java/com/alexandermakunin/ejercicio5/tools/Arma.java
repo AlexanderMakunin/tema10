@@ -8,7 +8,7 @@ public abstract class Arma extends Utilidad {
     }
 
     public void golpear(Entity entity) {
-        entity.setActualHp(entity.getActualHp()- getDamage());
+        entity.setActualHp(entity.getActualHp() - getDamage());
         super.setDurabilidad(super.getDurabilidad()-1);
     }
 }

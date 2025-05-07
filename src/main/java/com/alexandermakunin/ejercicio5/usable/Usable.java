@@ -6,8 +6,9 @@ public class Usable extends Objeto {
     private final String nombre;
     private int actualStack = 0;
     public Usable(String nombre) {
-        super(nombre,16);
+        super(nombre,15);
         this.nombre = nombre;
+        actualStack = getActualStack()+1;
     }
 
     public int getActualStack() {
